@@ -1,0 +1,6 @@
+CustomerID,TotalSpend,PurchaseFrequency,PreferredCategory,Cluster
+C001,18000,2,Electronics,1
+C002,2500,1,Fashion,0
+C003,500,1,Groceries,0
+C004,20000,1,Electronics,2
+C005,700,1,Groceries,0

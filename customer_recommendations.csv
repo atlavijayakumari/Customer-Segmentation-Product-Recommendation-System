@@ -1,0 +1,6 @@
+CustomerID,TotalSpend,PurchaseFrequency,PreferredCategory,Cluster,RecommendedProducts
+C001,18000,2,Electronics,1,"['P001', 'P004']"
+C002,2500,1,Fashion,0,['P002']
+C003,500,1,Groceries,0,"['P003', 'P005']"
+C004,20000,1,Electronics,2,"['P001', 'P004']"
+C005,700,1,Groceries,0,"['P003', 'P005']"
