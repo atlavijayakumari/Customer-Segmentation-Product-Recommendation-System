@@ -1,4 +1,4 @@
-**Vijaya Kumari Atla**
+****Vijaya Kumari Atla**
 
 🧾 **Final Report – Flipkart Data Science Internship Project**
 
@@ -10,7 +10,7 @@
 ---
 
 ### 🎯 **Objective:**  
-To analyze customer purchase history, segment buyers into meaningful groups, and create a recommendation engine that suggests relevant products to each segment — supporting data-driven marketing strategies.
+To analyze customer purchase history, segment buyers into meaningful groups, and build a recommendation system that suggests relevant products to each customer segment — enabling smarter marketing and personalized shopping experiences.
 
 ---
 
@@ -20,6 +20,7 @@ To analyze customer purchase history, segment buyers into meaningful groups, and
 - **numpy:** Numerical operations  
 - **matplotlib & seaborn:** Data visualization  
 - **scikit-learn:** Clustering & modeling  
+- **surprise:** Product recommendation algorithms  
 - **VS Code:** Development environment  
 - **GitHub:** Version control & submission  
 
@@ -72,10 +73,30 @@ Derived key customer metrics:
 
 ---
 
+### 💡 **Recommendation System:**  
+Built a **Collaborative Filtering Model** using the **Surprise library** (KNNBasic algorithm).  
+
+**Steps:**  
+- Used `CustomerID` and `ProductID` interaction matrix  
+- Computed similarity scores between users  
+- Predicted products each user is likely to purchase next  
+
+**Top 3 Recommendations (example):**  
+| Customer Segment | Recommended Products |
+|------------------|----------------------|
+| High Spenders | Smartphones, Smartwatches, Laptops |
+| Moderate Buyers | Clothing, Footwear, Accessories |
+| Low Spenders | Groceries, Daily Essentials, Home Items |
+
+📦 Output file: `recommendations_output.csv`
+
+---
+
 ### 📊 **Visualizations Created:**  
 - 🥧 Pie Chart – Customer Segment Distribution  
 - 📊 Bar Chart – Average Spend by Cluster  
 - 📈 Line Chart – Category Preference Trends  
+- 📉 Recommendation Accuracy Curve  
 
 🖼️ All visuals saved in the `outputs/` folder  
 
@@ -83,8 +104,9 @@ Derived key customer metrics:
 
 ### 💻 **How to Run This Project:**  
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+pip install pandas numpy matplotlib seaborn scikit-learn scikit-surprise
 python cleaning.py
 python feature_engineering.py
 python customer_segmentation.py
+python recommendation_system.py
 python visualization.py
