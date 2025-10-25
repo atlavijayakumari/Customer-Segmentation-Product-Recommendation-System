@@ -1,4 +1,4 @@
-****Vijaya Kumari Atla**
+**Vijaya Kumari Atla**
 
 🧾 **Final Report – Flipkart Data Science Internship Project**
 
