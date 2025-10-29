@@ -24,7 +24,5 @@ customer_data = data.groupby('CustomerID').agg({
 # Step 6: Display result
 print(customer_data.head())
 
-# Step 7: Save the cleaned data
-customer_data.to_csv("cleaned_data.csv", index=False)
-print("Cleaned data saved successfully!")
+
 
