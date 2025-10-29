@@ -1,15 +1,19 @@
-# customer_segmentation.py
+# customer_segmentation_step3.py
 
-# Step 1: Import necessary library
 import pandas as pd
+from sklearn.cluster import KMeans
 
-# Step 2: Load CSV file
-df = pd.read_csv('sample_transactions.csv')  # CSV must be in the same folder
+# Load prepared customer data
+df = pd.read_csv("customer_features.csv")
 
-# Step 3: View first 5 rows
-print("First 5 rows of the dataset:")
+# Select features for segmentation
+X = df[['TotalSpend', 'PurchaseCount']]
+
+# Apply KMeans Clustering (grouping)
+kmeans = KMeans(n_clusters=3, random_state=0)
+df['Segment'] = kmeans.fit_predict(X)
+
+# Show segmented customers
+print("\nCustomer Segments:")
 print(df.head())
 
-# Step 4: Check dataset info
-print("\nDataset information:")
-print(df.info())
