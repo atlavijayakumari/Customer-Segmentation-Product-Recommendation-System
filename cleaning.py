@@ -1,34 +1,30 @@
 import pandas as pd
 
-# 1️⃣ Load dataset
-df = pd.read_csv("sample_transactions.csv")
+# Step 1: Load the dataset
+data = pd.read_csv("sample_transactions.csv")
 
-# 2️⃣ Basic info
-print("Dataset shape:", df.shape)
-print(df.head())
-print("\nMissing values:\n", df.isnull().sum())
+# Step 2: View basic info
+print("Rows and Columns:", data.shape)
+print("Missing values:\n", data.isnull().sum())
 
-# 3️⃣ Handle missing values
-for col in df.select_dtypes(include='number'):
-    df[col] = df[col].fillna(df[col].median())  # assign back instead of inplace
+# Step 3: Fill missing values
+data['PurchaseAmount'] = data['PurchaseAmount'].fillna(data['PurchaseAmount'].median())
+data['Category'] = data['Category'].fillna(data['Category'].mode()[0])
 
-for col in df.select_dtypes(include='object'):
-    df[col] = df[col].fillna(df[col].mode()[0])  # assign back instead of inplace
+# Step 4: Remove duplicate rows
+data = data.drop_duplicates()
 
-# 4️⃣ Remove duplicates
-df = df.drop_duplicates()
-
-# 5️⃣ Create basic customer features
-customer_features = df.groupby('CustomerID').agg({
-    'PurchaseAmount': 'sum',           # total spend
-    'ProductID': 'count',              # purchase frequency
-    'Category': lambda x: x.mode()[0]  # preferred category
+# Step 5: Create new customer summary table
+customer_data = data.groupby('CustomerID').agg({
+    'PurchaseAmount': 'sum',
+    'ProductID': 'count',
+    'Category': lambda x: x.mode()[0]
 }).reset_index()
 
-# 6️⃣ Preview cleaned features
-print("\nCustomer Features:")
-print(customer_features.head())
+# Step 6: Display result
+print(customer_data.head())
 
-# 7️⃣ Save prepared features
-customer_features.to_csv("customer_features_prepared.csv", index=False)
-print("\nPrepared features saved to 'customer_features_prepared.csv'")
+# Step 7: Save the cleaned data
+customer_data.to_csv("cleaned_data.csv", index=False)
+print("Cleaned data saved successfully!")
+
