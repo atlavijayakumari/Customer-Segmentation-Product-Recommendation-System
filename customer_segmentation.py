@@ -1,5 +1,5 @@
-# customer_segmentation_step3.py
-
+#customer segmentation 
+#step3
 import pandas as pd
 from sklearn.cluster import KMeans
 
@@ -17,3 +17,6 @@ df['Segment'] = kmeans.fit_predict(X)
 print("\nCustomer Segments:")
 print(df.head())
 
+# Save final segmented data
+df.to_csv("segmented_customers.csv", index=False)
+print("\nSegmented data saved as 'segmented_customers.csv'")
