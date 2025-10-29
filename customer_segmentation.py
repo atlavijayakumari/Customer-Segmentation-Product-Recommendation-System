@@ -1,22 +1,22 @@
-#customer segmentation 
-#step3
 import pandas as pd
-from sklearn.cluster import KMeans
 
-# Load prepared customer data
-df = pd.read_csv("customer_features.csv")
+# Load segmented customer data
+df = pd.read_csv("segmented_customers.csv")
 
-# Select features for segmentation
-X = df[['TotalSpend', 'PurchaseCount']]
+# Count customers in each segment
+count = df['Segment'].value_counts()
 
-# Apply KMeans Clustering (grouping)
-kmeans = KMeans(n_clusters=3, random_state=0)
-df['Segment'] = kmeans.fit_predict(X)
+# Find average spend and purchase count
+summary = df.groupby('Segment')[['TotalSpend', 'PurchaseCount']].mean()
 
-# Show segmented customers
-print("\nCustomer Segments:")
-print(df.head())
+# Find most common category
+category = df.groupby('Segment')['PreferredCategory'].agg(lambda x: x.mode()[0])
 
-# Save final segmented data
-df.to_csv("segmented_customers.csv", index=False)
-print("\nSegmented data saved as 'segmented_customers.csv'")
+# Combine all results
+profile = pd.concat([count, summary, category], axis=1)
+profile.columns = ['NumCustomers', 'AvgSpend', 'AvgPurchase', 'TopCategory']
+
+# Show and save results
+print(profile)
+profile.to_csv("segment_profile_summary.csv")
+print("\nProfile summary saved!")
