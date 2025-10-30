@@ -46,5 +46,29 @@ Final submission for the Flipkart task-2 named "Customer segmentation and produc
 
 
 8.feature_engineering.py :
-  Based upon the customer segmentation we make the groups.
-  A 
+ In this we have to apply some algorithms and find the insights like favourite product of a
+ customer and favourite catogiry like features to analyze.
+
+
+9.profile_analysis.py :
+  Based upon the customer segmentation we make the groups by merging the similar data.
+  A group is a collection of customers based upon the buying behaviour like
+  having similar product, purchasing customers .
+
+  Based on all of these insights and patterns we have to analyze the profile of thet particular segment.
+
+
+10.recommendation_system.py :
+  Based upon the analysis we recommend the upcoming buying products to the customers.
+  For example,
+     -We suggest premium products for the high spenders
+     -we suggest medium products for te average spenders
+     -and suggest discounts and low cost products to the occasional customers
+
+
+11.visualization.py:
+  Instead of showing numbers it is better to show the numbers in graphical representation.
+  So,we have to show customer segmentation in a graphical representation.
+  *pie chart is used to show the segment size(no.of customes in a segment)
+  *bar chart is used to represent comparison between the total spend and the purchase count.
+
