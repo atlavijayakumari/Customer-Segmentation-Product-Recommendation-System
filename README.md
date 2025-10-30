@@ -74,3 +74,33 @@ Final submission for the Flipkart task-2 named "Customer segmentation and produc
   *pie chart is used to show the segment size(no.of customes in a segment)
   *bar chart is used to represent comparison between the total spend and the purchase count.
 
+
+
+12.How to run the project:
+   
+
+Step 1: Project Setup
+
+Keep all project files in the same folder:
+
+cleaning.py  
+feature_engineering.py  
+customer_segmentation.py  
+profile_analysis.py  
+recommendation_system.py  
+visualization.py  
+sample_transactions.csv
+
+
+Step 2: Install Required Libraries
+
+If using VS Code or pc:
+
+pip install pandas 
+pip install numpy 
+pip install matplotlib 
+pip install scikit-learn
+
+
+💻 Step 3: Run Each Script in Order
+
