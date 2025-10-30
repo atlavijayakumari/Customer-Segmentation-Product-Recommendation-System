@@ -1,4 +1,6 @@
 Final submission for the Flipkart task-2 named "Customer segmentation and product Recommendation"
+
+
 1.importing the dataset :
  *The dataset is taken from your provided task.
  *The dataset is imported by unzipping the dataset 
